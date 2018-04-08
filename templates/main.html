@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CO2 & Temperature Plotter</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <style>
+        body
+        {
+            text-align: center
+        }
+        .intro
+        {
+            font-family: 'Raleway', sans-serif;
+            font-size: 48px;
+            align-content: center;
+            text-align: center;
+            margin-top: 2cm;
+            display:block;
+        }
+        .item1, .item2, item3
+        {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 24px;
+            text-align: justify;
+            display:inline-block;
+            margin-top: 50px;
+        }
+        .item2
+        {
+            margin-left: 250px;
+        }
+        .image1, .image2
+        {
+            display:inline-block;
+        }
+        .image2
+        {
+            margin-left: 50px;
+        }
+        .dropdown, .dropdown2
+        {
+            display:inline-block;
+        }
+        .dropdown2
+        {
+            margin-left: 230px;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">Carbon dioxide & Temperature</div>
+    <div class="item1">CO2 data</div>
+    <div class="item2">Temperature data</div>
+    <p></p>
+    <div class="image1"><img src="{{ url_for('static',filename="co2_fig.png")}}" width=400 height=300></div>
+    <div class="image2"><img src="{{ url_for('static',filename="temperature_fig.png")}}" width=400 height=300></div>
+    <p></p>
+    <div class="dropdown">
+        <form action="/co2" method="POST">
+        Start Year : <input type="text" name="starty" value="1751"><br>
+        End Year : <input type="text" name="endy" value="2012"><br>
+            Y-axis Min : <input type="text" name="ymin" value="default"><br>
+            Y-axis Max : <input type="text" name="ymax" value="default"><br><br>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="dropdown2">
+        <form action="/temp" method="POST">
+            Month to plot : <input type="text" name="month" value="2"><br>
+        Start Year : <input type="text" name="starty" value="1816"><br>
+        End Year : <input type="text" name="endy" value="2012"><br>
+            Y-axis Min : <input type="text" name="ymin" value="default"><br>
+            Y-axis Max : <input type="text" name="ymax" value="default"><br><br>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    <p>
+         <div class="item1">Country data</div>
+    </p>
+    <p>
+        <div class="image3"><img src="{{ url_for('static',filename="country_fig.png")}}" width=400 height=300></div>
+    </p>
+    <p>
+        <div class="dropdown3">
+        <form action="/country" method="POST">
+            Year to plot : <input type="text" name="year" value="2000"><br>
+            Lower threshold : <input type="text" name="low_thres" value="15"><br>
+            Upper threshold : <input type="text" name="upper_thres" value="20"><br><br>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    </p>
+
+
+</body>
+</html>

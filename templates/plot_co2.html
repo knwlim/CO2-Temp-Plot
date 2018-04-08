@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plot CO2</title>
+    <style>
+        body
+        {
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+<h4>Start year : {{ start_year }} &nbsp;&nbsp; End year : {{ end_year }}</h4>
+<h4>ymin : {{ ymin }} &nbsp;&nbsp; ymax : {{ ymax }}</h4>
+<h3>Graph</h3>
+<img src="/static/co2result.png?s={{start_year}}?e={{end_year}}?ymin={{ymin}}?ymax={{ymax}}" width=600 height=500>
+</body>
+</html>
